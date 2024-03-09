@@ -30,10 +30,10 @@ const NavLinks = () => {
             href={path.href}
             className={`${
               pathname == path.href
-                ? "font-bold text-black"
+                ? "font-bold text-black dark:text-white"
                 : "font-bold text-zinc-400"
             }
-                text-sm px-4
+                text-sm px-4 
             `}
           >
             {path.title}
