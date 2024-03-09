@@ -10,7 +10,7 @@ const Card = () => {
                     <p className="text-xs">Full Stack Developer</p>
                     <p className="text-xs">3 Days ago</p>
                 </div>
-                <div className="text-right flex flex-col">
+                <div className="text-right flex flex-col ">
                     <p className="text-xs">Singapore</p>
                     <Link href='#' className="text-sm self-end">View Details</Link>
                 </div>

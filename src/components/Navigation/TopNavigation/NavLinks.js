@@ -8,7 +8,7 @@ const NavLinks = () => {
   const paths = [
     {
         href: "/findJobs",
-        title: "Find Jobs"
+        title: "Jobs"
     },
   
     {
@@ -23,7 +23,7 @@ const NavLinks = () => {
   }
 
   return (
-    <div className="flex">
+    <div className="flex justify-center md:justify-right">
       {paths.map((path, index) => (
         <div key={index} className="flex flex-col items-center">
           <Link
