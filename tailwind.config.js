@@ -9,9 +9,9 @@ module.exports = {
     extend: {
       colors:{
         primary: "rgb(20, 87, 211)",
-        darkBg: "rgb(27, 27, 27)",
+        darkBg: "rgb(15, 15, 15)",
         lightBg: "rgb(224, 231, 243)",
-        darkShade: "rgb(39, 39, 39)"
+        darkShade: "rgb(20, 20, 20)"
       },
       class:{
         active: "bg-primary",

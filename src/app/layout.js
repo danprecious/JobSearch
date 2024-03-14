@@ -16,10 +16,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ThemeProvider attribute="class" defaulTheme="system" enableSystem>
         <body className={inter.className}>
-          <main className="fle">
+          <main className="fle bg-lightBg dark:bg-darkBg">
             <div className="">
               <TopNavigation />
+
               {children}
+
             </div>
           </main>
         </body>

@@ -7,7 +7,7 @@ import NavLinks from "./NavLinks";
 
 const TopNavigation = () => {
   return (
-    <div className="w-[100%] max-h-[10em] py-4 md:px-6 sm:px-8 xs:px-4 px-2 md:justify-between items-center">
+    <div className="w-[100%] z-50 bg-lightBg dark:bg-darkBg fixed top-0 py-4 md:px-6 sm:px-8 xs:px-4 px-2 md:justify-between items-center">
       <div className="flex justify-between items-center">
         <div className=" relative">
           <p className="text-blue-600 font-black text-lg">FindJ..</p>

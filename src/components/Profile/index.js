@@ -7,8 +7,8 @@ const Profile = () => {
         <Image width={1040} height={1040} className="" src="/assets/images/profile-image.jpeg"/>
       </div>
       <div className="flex-col md:flex justify-center hidden">
-        <p className="text-xs font-extralight">Hello</p>
         <p className="text-sm font-semibold">Robin Sharma</p>
+        <p className="text-xs font-thin text-zinc-500">Software Engineer</p>
       </div>
     </div>
   )
