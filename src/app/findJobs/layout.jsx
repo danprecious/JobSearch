@@ -1,7 +1,7 @@
 import Filters from "@/components/Filters";
 import React from "react";
 import JobsListing from "./Jobs/page";
-import JobDetails from "./[JobDetails]/page";
+import JobDetails from "./[jobdetails]/page";
 
 const FindJobs = () => {
   return (
