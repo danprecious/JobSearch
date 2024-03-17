@@ -11,7 +11,7 @@ const JobsListing = async () => {
       <div className=''>
         {jobs.map((job) => {
           return (
-            <Card key ={job.id} job={job}/>
+            <Card key ={job.id} job={job} />
           )
         })}
       </div>

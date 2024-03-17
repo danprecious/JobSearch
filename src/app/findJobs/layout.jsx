@@ -1,7 +1,7 @@
 import Filters from "@/components/Filters";
 import React from "react";
 import JobsListing from "./Jobs/page";
-import JobDetails from "./[jobdetails]/page";
+import { JobDetailDisplay } from "./Jobs/[jobdetail]/page";
 
 const FindJobs = () => {
   return (
@@ -9,9 +9,9 @@ const FindJobs = () => {
         <div className="md:w-[20%]">
           <Filters />
         </div>
-        <div className="md:w-[80%] md:flex relative ">
+        <div className="`md:w-[80%] md:flex relative ">
           <JobsListing />
-          <JobDetails />
+          <JobDetailDisplay />
         </div>
       </div>
   

@@ -14,7 +14,7 @@ const Card = ({ job }) => {
                 </div>
                 <div className="text-right flex flex-col justify-between font-extralight">
                     <p className="text-xs opacity-80">{source}</p>
-                    <Link href={`/findJobs/${id}`} className="text-xs opacity-80 text-red-500 font-bold self-end">View Details</Link>
+                    <Link href={`/findJobs/Jobs/${id}`} className="text-xs opacity-80 text-red-500 font-bold self-end">View Details</Link>
                 </div>
             </div>
         </div>
