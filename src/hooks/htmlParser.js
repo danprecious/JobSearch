@@ -1,5 +1,5 @@
 "use client"
-import "../globals.css";
+import "../app/globals.css";
 
 export const useParser = (html_description) => {
   

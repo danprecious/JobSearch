@@ -8,7 +8,7 @@ const Profile = () => {
       </div>
       <div className="flex-col md:flex justify-center hidden">
         <p className="text-sm font-semibold">Robin Sharma</p>
-        <p className="text-xs font-thin text-zinc-500">Software Engineer</p>
+        <p className="text-xs font-thin dark:text-zinc-300 text-zinc-500">Software Engineer</p>
       </div>
     </div>
   )

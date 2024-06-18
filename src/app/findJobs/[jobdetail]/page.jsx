@@ -5,7 +5,7 @@ import { jobs } from "@/utils/dataModel";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 // import { document } from "postcss";
-import { useParser } from "@/app/hooks/htmlParser";
+import { useParser } from "@/hooks/htmlParser";
 import { FaBookmark, FaBookReader, FaWrench } from "react-icons/fa";
 import { StateContext } from "@/app/stateManager/context";
 import { saveJobs } from "@/app/helperFunctions/saveJobs";

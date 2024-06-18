@@ -1,32 +1,55 @@
 "use client"
 
 import Link from "next/link";
-import { FaBookmark, FaHeart } from "react-icons/fa";
+import { FaBookmark, FaDashcube, FaHeart } from "react-icons/fa";
 import { saveJobs } from "@/app/helperFunctions/saveJobs";
 import { useContext, useState } from "react";
 import { StateContext } from "@/app/stateManager/context";
 import { cacheJobs } from "@/app/helperFunctions/saveJobs";
+import { removeJob } from "@/app/helperFunctions/removeJob";
 
 
-const Card = ({job} ) => {
+const Card = ({ job }) => {
     const { logo, title, id, company_name, source, salary } = job;
 
+    const { state, dispatch } = useContext(StateContext);
 
-    const { jobs, setJobs } = useContext(StateContext);
-    // // const [jobs, setJobs] = useState([]);
 
-    // const saveJobs = (job) => {
+    const jobs = JSON.parse(localStorage.getItem("jobsSaved"));
+    let exists;
+
+    if (jobs) {
+        exists = jobs.some(jobItem => jobItem.id === id);
+    }
+
+
+
+    const handleBookmark = () => {
+
+        const { toggleToast, bookmarkModal } = state
+        // console.log(state);
+
         
-    //     const updatedJobs = [...jobs]
+        if (!exists) {
+            dispatch({ type: "SAVE_JOB", payload: true })
+            setTimeout(() => {
 
-    //     updatedJobs.push(job)
-    //     console.log(updatedJobs)
-        
-    //     setJobs(updatedJobs);
-    //     console.log(jobs)
-    // }
+                dispatch({ type: "SAVE_JOB", payload: false })
 
-    // // const { cachedJobs } = cacheJobs(jobs);
+            }, 2000)
+
+            saveJobs(job)
+        }
+
+        else {
+            dispatch({ type: "REMOVE_JOB", payload: id })
+            console.log(exists)
+            console.log(id)
+            dispatch({ type: "PROMPT_USER", payload: !bookmarkModal })
+        }
+
+
+    }
 
 
     return (
@@ -34,8 +57,8 @@ const Card = ({job} ) => {
             <div className=" w-[100%] flex flex-col  justify-between">
                 <div className="flex justify-between">
                     <div>Date</div>
-                    <button onClick={() => saveJobs(job,setJobs, jobs)} className="text-xs self-end flex items-center justify-between text-white bg-stone-900 p-2 rounded-[1.5em]">
-                        <FaBookmark />
+                    <button onClick={handleBookmark} className="text-xs self-end flex items-center justify-between dark:hover:bg-stone-200 dark:hover:text-stone-900 text-white bg-stone-900 p-2 rounded-[1.5em]">
+                        {exists ? <FaDashcube /> : <FaBookmark />}
                     </button>
                 </div>
                 <div className="flex justify-between py-4">

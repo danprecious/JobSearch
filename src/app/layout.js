@@ -4,6 +4,9 @@ import { ThemeProvider } from "../utils/theme-provider";
 import TopNavigation from "@/components/Navigation/TopNavigation";
 import SideNavigation from "@/components/Navigation/SideNavigation";
 import StateContextProvider from "./stateManager/context";
+// import { FaBookmark } from "react-icons/fa";
+import { Toast } from "@/components/modals/BookMarkToast";
+import { DeleteBookMark } from "@/components/modals/BookmarkModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +24,11 @@ export default function RootLayout({ children }) {
             <main className=" ">
               <div className="conten relative">
                 <TopNavigation />
-
+              
+                <DeleteBookMark />
+                <Toast />
                 {children}
+
               </div>
             </main>
           </body>

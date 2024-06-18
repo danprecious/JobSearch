@@ -3,6 +3,7 @@
 import Card from "@/components/cards";
 import { useContext, useEffect } from "react";
 import { StateContext } from "../stateManager/context";
+import { FaStickyNote } from "react-icons/fa";
 
 
 
@@ -11,11 +12,12 @@ const Bookmarks = () => {
 
   const {jobs, setJobs} = useContext(StateContext)
 
+  // console.log(jobs)
+  
   useEffect(() => {
     const jobs = JSON.parse(localStorage.getItem("jobsSaved"))
-    setJobs
-
-  })
+    // setJobs(jobs)
+  },[])
 
 
   const cachedJobs = localStorage.getItem("jobsSaved");
@@ -28,7 +30,14 @@ const Bookmarks = () => {
           return <Card  key={job.id} job={job} />
         })}
 
-      </div> : <div><p>You haven't saved any job yet, Bookmark one and it will appear here </p></div>}
+      </div> 
+      : <div className="flex flex-col justify-center items-center">
+          <div>
+            <FaStickyNote className="text-[10rem]"/>
+          </div>
+          <div><h1 className="font-black text-[3rem]">Opps...</h1></div>
+          <p>You haven't saved any job yet, make a bookmark and it will appear here </p>
+        </div>}
     </div>
   )
 }

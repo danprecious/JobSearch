@@ -2,7 +2,7 @@
 import React from "react";
 
 import { createContext, useReducer, useState } from "react";
-import { reducer } from "./reducer";
+import reducer, {initialState} from "./reducer";
 
 
 export const StateContext = React.createContext();
@@ -10,18 +10,17 @@ export const StateContext = React.createContext();
 const StateContextProvider = ({children}) =>{
 
     
-    const [jobs, setJobs] = useState([]);
-    
+    // console.log(initialState);
+        
+    const [state, dispatch] = useReducer(reducer, initialState)
 
-    const defaultState = {
-    toggleProfile : false,
-        }
 
-    const [state, dispatch] = useReducer(reducer, defaultState)
+
+
 
 
     return (
-        <StateContext.Provider value={{state, dispatch, setJobs, jobs}}>
+        <StateContext.Provider value={{state, dispatch}}>
             {children}
         </StateContext.Provider>
     )

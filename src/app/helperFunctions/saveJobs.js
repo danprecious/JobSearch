@@ -1,38 +1,64 @@
 "use client"
 
-import React from "react";
+import React, { useReducer } from "react";
 
 import { useContext } from "react"
 import { StateContext } from "../stateManager/context"
 
 
-export const saveJobs =  (job, setJobs, jobs) =>{
-    
-    
-    
-    
-    const savedJobs =  [...jobs]
-    savedJobs.push(job)
-    console.log(savedJobs)
-    const jobsData = JSON.stringify(savedJobs);
-    cacheJobs(savedJobs)
+export const saveJobs = (job) => {
 
-    setJobs((prev) => {
-        let updatedJobs;
-        if (prev){
-            updatedJobs = [...jobs, job]
+
+    let savedJobs = [];
+
+    try {
+        const {jobs} = getJobs()
+        if (jobs == null || undefined) {
+            savedJobs.push(job)
+            const jobsData = JSON.stringify(savedJobs);
+            cacheJobs(jobsData)
+            console.log("this happened");
+            // console.log(jobsData)
         }
-        else{
-            updatedJobs= [job]
+
+        else {
+            // console.log(jobs)
+            savedJobs = [...jobs]
+            let exists = savedJobs.some(jobObject => jobObject.id == job.id)
+
+            if (exists) {
+                console.log("job exists")
+                console.log(found)
+                // console.log(savedJobs.length)
+                // return;
+
+            }
+            if (!exists) {
+                console.log("this happened instead")
+                savedJobs = [...jobs]
+                savedJobs.push(job)
+                const jobsData = JSON.stringify(savedJobs);
+                cacheJobs(jobsData)
+            }
         }
-        return updatedJobs
-    });
-    
-    console.log(jobs)
+
+    }
+    catch {
+        const err = console.error("No jobs");
+        return err;
+    }
 
 }
 
-export const cacheJobs = (savedJobs) =>{
-    localStorage.setItem("jobsSaved", saveJobs);
-    
+export const cacheJobs = (jobsData) => {
+    localStorage.setItem("jobsSaved", jobsData);
+    const saved = JSON.parse(localStorage.getItem("jobsSaved"));
+    // console.log(saved);
+}
+
+export const getJobs = () => {
+    const jobs = JSON.parse(localStorage.getItem("jobsSaved"));
+    return {
+        jobs
+    }
 }
