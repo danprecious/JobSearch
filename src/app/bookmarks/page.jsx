@@ -1,45 +1,40 @@
-"use client"
+"use client";
 
 import Card from "@/components/cards";
 import { useContext, useEffect } from "react";
 import { StateContext } from "../stateManager/context";
 import { FaStickyNote } from "react-icons/fa";
 
-
-
-
 const Bookmarks = () => {
+  const { state, dispatch } = useContext(StateContext);
+  const { jobs } = state;
 
-  const {jobs, setJobs} = useContext(StateContext)
-
-  // console.log(jobs)
-  
-  useEffect(() => {
-    const jobs = JSON.parse(localStorage.getItem("jobsSaved"))
-    // setJobs(jobs)
-  },[])
-
-
-  const cachedJobs = localStorage.getItem("jobsSaved");
-  const savedJobs = JSON.parse(cachedJobs)
+  const savedJobs = false;
 
   return (
-    <div className='mt-[8.5em] mx-[3em] min-h-[100vh]'>
-      {savedJobs ? <div className="custom-grid">
-        {savedJobs.map((job,  index) => {
-          return <Card  key={job.id} job={job} />
-        })}
-
-      </div> 
-      : <div className="flex flex-col justify-center items-center">
+    <div className="mt-[8.5em] mx-[3em] min-h-[100vh]">
+      {savedJobs ? (
+        <div className="custom-grid">
+          {savedJobs.map((job, index) => {
+            return <Card key={job.id} job={job} />;
+          })}
+        </div>
+      ) : (
+        <div className="flex flex-col justify-center items-center">
           <div>
-            <FaStickyNote className="text-[10rem]"/>
+            <FaStickyNote className="text-[10rem]" />
           </div>
-          <div><h1 className="font-black text-[3rem]">Opps...</h1></div>
-          <p>You haven't saved any job yet, make a bookmark and it will appear here </p>
-        </div>}
+          <div>
+            <h1 className="font-black text-[3rem]">Opps...</h1>
+          </div>
+          <p className="text-black dark:text-stone-200 text-center">
+            You haven't saved any job yet, make a bookmark and it will appear
+            here{" "}
+          </p>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Bookmarks;

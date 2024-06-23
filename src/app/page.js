@@ -1,9 +1,17 @@
-import JobDetails from "@/components/JobDetails";
-import JobsListing from "@/components/JobListing";
+import { getServerSession } from "next-auth";
+import {authOptions} from './api/auth/[...nextauth]/route'; 
 
-const Page = () => {
+
+const Page = async () => {
+    const session = await getServerSession(authOptions)
+  
   return (
-    <div>Landing Page</div>
+    <div className="mt-40">
+      Home
+       <br></br>
+      {JSON.stringify(session)}
+
+    </div>
   );
 };
 

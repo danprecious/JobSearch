@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import "../app/globals.css";
 
 export const useParser = (html_description) => {
-  
   let content = document.createElement("div");
   content.innerHTML = html_description;
-  
+
   const contentArray = Array.from(content.children);
   // console.log(contentArray);
   let pg = [];
@@ -21,7 +20,7 @@ export const useParser = (html_description) => {
       const listItems = node.querySelectorAll("li");
       listItems.forEach((item, index) => {
         item.classList.add("list");
-        console.log(item)
+        console.log(item);
       });
     }
   });
@@ -31,9 +30,9 @@ export const useParser = (html_description) => {
     pg[0].classList.add("first-pg");
     console.log(pg[0]);
   }
-  
-  const updatedContent = content.innerHTML;
-  console.log(updatedContent)
 
-return {updatedContent}
-}
+  const updatedContent = content.innerHTML;
+  console.log(updatedContent);
+
+  return { updatedContent };
+};

@@ -2,7 +2,8 @@ export const initialState = {
     toggleProfile: false,
     toggleToast: false,
     bookmarkModal: false,
-    jobId: ""
+    jobId: "",
+    jobs: {}
 }
 
 
@@ -33,12 +34,18 @@ const reducer = (state, action) => {
     }
 
     if (action.type === "REMOVE_JOB") {
+        console.log(action.payload)
         return {
             state,
-            job: action.payload
+            jobId: action.payload
         }
     }
-
+    if (action.type === "JOBS") {
+        return {
+            state,
+            jobs: action.payload
+        }
+    }
 }
 
 export default reducer
