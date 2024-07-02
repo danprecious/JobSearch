@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  /* @apply border; */
+  /* border: 1px solid red; */
+}
+
+
+@layer utilities {
+  .modal-btn{
+    padding: 0.75em 1.7em;
+    margin: 4px 0;
+  }
+}
+
+@layer components {
+
+  .animate-toast-in{
+    display: hidden;
+    animation: displayIn 1s;
+  }
+  .animate-toast-out{
+    /* display: flex; */
+    animation: displayOut 1s;
+  }
+
+  
+
+  @keyframes displayIn {
+    0% {
+      transform: translateX(500px);
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }
+  @keyframes displayOut {
+    0% {
+      display: flex;
+      transform: translateX(0);
+    }
+    100%{
+      display: hidden;
+      transform: translateX(500px);
+    }
+  }
+
+  .toast-border{
+    border: .3px;
+    border-style: solid;
+  }
+}
+/* 
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.content{
+  background: radial-gradient(ellipse, rgba(255, 0, 0, 0.205), rgba(0, 255, 136, 0.103),rgb(255, 255, 255), rgb(255, 255, 255));
+}
+.custom-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+.z-index{
+  z-index: calc(infinity * 1px);
+}
+
+.first-pg{
+  font-size: 1.2rem;
+  font-weight: 900 !important;
+  /* color: rgb(3, 94, 69) !important; */
+}
+
+.pg{
+  font-weight: 500;
+  text-align: justify;
+  padding: .5em;
+  padding-top: 1em;
+}
+
+.list{
+  list-style: disc;
+  margin-left: 3em;
+  color: rgb(3, 109, 77);
+  /* color: rgb(20, 20, 20) !important; */
+}
+
+.colors{
+  color: rgb(20, 87, 211); 
+  color: rgb(224, 231, 243); 
+  color: rgb(27, 27, 27); 
+  color: rgb(238, 238, 238); 
+  color: rgb(39, 39, 39); 
+  color: rgb(255, 255, 255); 
+  
+}
