@@ -15,24 +15,24 @@ export const useParser = (html_description) => {
 
     if (node.nodeName === "P") {
       node.classList.add("pg");
-      console.log[node[0]];
+      // console.log[node[0]];
     } else if (node.nodeName === "UL") {
       const listItems = node.querySelectorAll("li");
       listItems.forEach((item, index) => {
         item.classList.add("list");
-        console.log(item);
+        // console.log(item);
       });
     }
   });
-  console.log(pg);
+  // console.log(pg);
 
   if (pg[0] === contentArray[0]) {
     pg[0].classList.add("first-pg");
-    console.log(pg[0]);
+    // console.log(pg[0]);
   }
 
   const updatedContent = content.innerHTML;
-  console.log(updatedContent);
+  // console.log(updatedContent);
 
   return { updatedContent };
 };

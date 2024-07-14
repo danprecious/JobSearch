@@ -5,12 +5,41 @@ import axios from "axios";
 import Logo from "@/components/logo";
 
 export default function Register() {
-const [data, setData] = useState({
-  name: "",
-  email: "",
-  password: "",
-})
 
+    // MANAGE STATE
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+  });
+  const [success, setSuccess] = useState(false);
+
+
+// HANDLE CHANGE
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    if (e.target.name === "email") {
+      setData({ ...data, email: e.target.value });
+    }
+    if (e.target.name === "password") {
+      setData({ ...data, password: e.target.value });
+      if (data.password === "" || data.password.length < 8) {
+        setError({ ...error, password: "Please enter a strong password" });
+      } else {
+        setSuccess(true);
+        setError({ ...error, password: "" });
+        setTimeout(() => {
+          setSuccess(false);
+        }, 1500);
+      }
+    }
+  };
+
+
+// HANDLE REGISTRATION
   const registerUser = async (e) => {
     e.preventDefault();
     console.log(data);
@@ -44,7 +73,7 @@ const [data, setData] = useState({
                   type="text"
                   required
                   value={data.name}
-                  onChange={e => setData({...data, name: e.target.value})}
+                  onChange={e => handleChange(e)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -65,7 +94,7 @@ const [data, setData] = useState({
                   autoComplete="email"
                   value={data.email}
                   required
-                  onChange={e => setData({...data, email: e.target.value})}
+                  onChange={e => handleChange(e)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -89,6 +118,18 @@ const [data, setData] = useState({
                   autoComplete="current-password"
                   value={data.password}
                   onChange={e => setData({...data, password: e.target.value})}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div className="mt-2">
+                <input
+                  id="password"
+                  name="confirm_password"
+                  type="password"
+                  autoComplete="current-password"
+                  value={data.confirmPassword}
+                  onChange={e => handleChange(e)}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />

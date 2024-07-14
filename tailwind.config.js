@@ -8,18 +8,26 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
-        primary: "rgb(20, 87, 211)",
-        darkBg: "rgb(15, 15, 15)",
-        lightBg: "rgb(238, 238, 238)",
-        darkShade: "rgb(20, 20, 20)"
+      colors: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        accent: {
+          1: "var(--accent1)",
+          2: "var(--accent2)",
+        },
+        radial: {
+          1: "var(--radial1)",
+          2: "var(--radial2)",
+          3: "var(--radial3)",
+          4: "var(--radial4)",
+        },
+        darkShade: "rgb(20, 20, 20)",
       },
-      class:{
+      class: {
         active: "bg-primary",
-        sectionH1: "font-bold text-zinc-700"
-      }
+        sectionH1: "font-bold text-zinc-700",
+      },
     },
-    
   },
   darkMode: ["class"],
   plugins: [

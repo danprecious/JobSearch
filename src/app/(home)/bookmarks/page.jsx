@@ -12,7 +12,7 @@ const Bookmarks = () => {
   const savedJobs = false;
 
   return (
-    <div className="mt-[8.5em] mx-[3em] min-h-[100vh]">
+    <div className="mt-8 md:mt-20 mx-[3em] min-h-[100vh]">
       {savedJobs ? (
         <div className="custom-grid">
           {savedJobs.map((job, index) => {

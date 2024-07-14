@@ -1,4 +1,4 @@
-export const GetPost = async () =>{
+export const getJobs = async () =>{
     try {
         const data = await fetch('/data.json')
         const response = await data.json()

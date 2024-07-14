@@ -34,7 +34,7 @@ const Card = ({ job }) => {
   };
 
   return (
-    <div className="px-4 z-30  min-h-[17em] md:max-h-[15em] shadow bg-white/10 bg-opacity-50 backdrop-blur-lg  md:min-w-[15em] md:max-w-[20em] w-[100%] py-4 justify-between flex  dark:bg-darkBg rounded-lg mb-4">
+    <div className="px-4 z-30  min-h-[17em] md:max-h-[15em] shadow bg-white/10 bg-opacity-50 backdrop-blur-lg  lg:min-w-[15em] md:max-w-[20em] w-[100%] py-4 justify-between flex  dark:bg-darkBg rounded-lg mb-4">
       <div className=" w-[100%] flex flex-col  justify-between">
         <div className="flex justify-between">
           <div>Date</div>
@@ -50,7 +50,7 @@ const Card = ({ job }) => {
             <p className="text-[10px] font-bold text-green-900  py-2 opacity-80">
               {source}
             </p>
-            <h1 className="font-bold text-[1.1rem] py-1">{title}</h1>
+            <h1 className="font-bold md:text-[1.1rem] py-1">{title}</h1>
             <p className="text-xs opacity-80">{company_name}</p>
             {/* <p className="text-xs opacity-80 text-red-500">3 Days ago</p> */}
           </div>

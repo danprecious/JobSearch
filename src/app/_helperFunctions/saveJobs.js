@@ -6,10 +6,12 @@ import { useContext } from "react"
 import { StateContext } from "../stateManager/context"
 
 
+
 export const saveJobs = (job) => {
 
 
     let savedJobs = [];
+
 
     try {
         const {jobs} = getJobs()
