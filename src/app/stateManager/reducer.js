@@ -2,13 +2,14 @@ export const initialState = {
   toggleProfile: false,
   toggleToast: false,
   bookmarkModal: false,
-  personalizeModal: true,
+  personalizeModal: false,
   jobId: "",
   jobs: {},
+  userPreferences: {}
 };
 
 const reducer = (state, action) => {
-  if (action.type == "TOGGLE_PROFILE") {
+  if (action.type == "TOGGLE_PROFILE") { 
     return {
       ...state,
       toggleProfile: action.payload,
@@ -47,6 +48,13 @@ const reducer = (state, action) => {
       ...state,
       personalizeModal: action.payload,
     };
+  }
+
+  if(action.type === "USER_PREFERENCES") {
+    return {
+      ...state,
+      userPreferences: action.payload
+    }
   }
 };
 

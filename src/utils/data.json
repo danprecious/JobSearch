@@ -1,4 +1,4 @@
-{
+{ 
     "jobs": [
       {
         "id": "YjC_2fpMQAxA9RYVAAAAAA==",
@@ -10,7 +10,6 @@
         "source": "LinkedIn",
         "title": "Tal and Connex Software Engineer Specialist*",
         "salary": {
-          "currency": "USD",
           "min_salary": 70,
           "max_salary": 80,
           "salary_type": "hourly"

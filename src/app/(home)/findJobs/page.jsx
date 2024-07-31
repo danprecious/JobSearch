@@ -1,13 +1,23 @@
 import Card from "@/components/cards";
-import { GetPost } from "@/utils/apiCall";
+import { GetPost, fetchJobs, fetchJobs2, getJobs } from "@/utils/apiCall";
 import React from "react";
-import { jobs } from "@/utils/dataModel";
+// import { jobs } from "@/utils/dataModel";
 import Filters from "@/components/Filters";
 import { FaArrowDown, FaBookmark } from "react-icons/fa";
 import { Toast } from "@/components/modals/BookMarkToast";
 
-const JobsListing = async () => {
+const FindJobs = async () => {
   // perform fetch to jobs api here
+
+  const query = {
+    q: "software engineer",
+    page: "1",
+    country: "us",
+    city: "Seattle",
+  }
+
+  const data = await getJobs(query);
+  console.log((data));
 
   return (
     <div className="w-[100%] relative bottom-0 backdrop-blur-2xl  md:py-[1.5em] md:px-[3em]  ">
@@ -21,7 +31,7 @@ const JobsListing = async () => {
         <p className="flex items-center md:mt-2 mt-8 border rounded-md px-4 py-3">
           See some for you <FaArrowDown className="ml-2" />
         </p>
-      </div>
+      </div>  
 
       <div className="hidde">
         <div className="absolute right-0 bottom-0 z-5 md:w-[500px] w-[150px] md:h-[200px] h-[100px]  rounded-full blur-[12em] bg:radial1 "></div>
@@ -39,7 +49,7 @@ const JobsListing = async () => {
         {/* <Filters /> */}
 
         <div className="w-[100%] custom-grid z-50 rounded-3xl py-6">
-          {jobs.map((job) => {
+          {data.map((job) => {
             return <Card key={job.id} job={job} />;
           })}
         </div>
@@ -48,4 +58,4 @@ const JobsListing = async () => {
   );
 };
 
-export default JobsListing;
+export default FindJobs;

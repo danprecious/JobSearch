@@ -10,7 +10,7 @@ export const jobs = [
       "title": "Tal and Connex Software Engineer Specialist*",
       "salary": {
         "currency": "USD",
-        "min_salary": 70, 
+        "min_salary": 70,  
         "max_salary": 80,
         "salary_type": "hourly"
       }
