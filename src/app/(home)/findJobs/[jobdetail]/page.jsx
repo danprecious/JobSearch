@@ -46,7 +46,7 @@ const JobDetail = () => {
   const { upperCase } = useStringer(salaryType);
 
   let currency = "";
-  if (salary.currency === "USD") {
+  if (salary !== null && salary.currency === "USD") {
     currency = "$";
   }
   // console.log(params)

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Card from "@/components/cards";
 import { useContext, useEffect } from "react";
@@ -9,7 +9,12 @@ const Bookmarks = () => {
   const { state, dispatch } = useContext(StateContext);
   const { jobs } = state;
 
-  const savedJobs = false;
+  const savedJobs =
+    typeof window !== undefined
+      ? localStorage.getItem("jobsSaved")
+        ? JSON.parse(localStorage.getItem("jobsSaved"))
+        : null
+      : null;
 
   return (
     <div className="mt-8 md:mt-20 mx-[3em] min-h-[100vh]">

@@ -8,7 +8,7 @@ export const StateContext = React.createContext();
 
 const StateContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+ 
   return (
     <StateContext.Provider value={{ state, dispatch }}>
       {children}

@@ -25,7 +25,7 @@ const SelectComp = ({ filterParam }) => {
 
 
   return (
-    <button onClick={toggleList} className='bg-stone-100 bg-white/10 mx-1  backdrop-blur-lg z-50 shadow relative min-w-[50px] w-[100%] max-w-[220px] flex justify-between items-center p-2  rounded-[0.5em] dark:bg-stone-900'>
+    <div onClick={toggleList} className='bg-stone-100 bg-white/10 mx-1 cursor-pointer backdrop-blur-lg z-50 shadow relative min-w-[50px] w-[100%] max-w-[220px] flex justify-between items-center p-2  rounded-[0.5em] dark:bg-stone-900'>
       <p>{filterParam}</p>
       {
         listOpen ? <FaAngleUp /> : <FaAngleDown />
@@ -40,6 +40,6 @@ const SelectComp = ({ filterParam }) => {
           })
         }
       </div> : ""}
-    </button>
+    </div>
   )
 }

@@ -1,23 +1,22 @@
 import Card from "@/components/cards";
 import { GetPost, fetchJobs, fetchJobs2, getJobs } from "@/utils/apiCall";
 import React from "react";
-// import { jobs } from "@/utils/dataModel";
+import { jobs } from "@/utils/dataModel";
 import Filters from "@/components/Filters";
 import { FaArrowDown, FaBookmark } from "react-icons/fa";
-import { Toast } from "@/components/modals/BookMarkToast";
 
 const FindJobs = async () => {
   // perform fetch to jobs api here
 
-  const query = {
-    q: "software engineer",
-    page: "1",
-    country: "us",
-    city: "Seattle",
-  }
+  // const query = {
+  //   q: "software engineer",
+  //   page: "1",
+  //   country: "us",
+  //   city: "Seattle",
+  // }
 
-  const data = await getJobs(query);
-  console.log((data));
+  // const data = await getJobs(query);
+  // console.log((data));
 
   return (
     <div className="w-[100%] relative bottom-0 backdrop-blur-2xl  md:py-[1.5em] md:px-[3em]  ">
@@ -46,10 +45,10 @@ const FindJobs = async () => {
             Jobs
           </h1>
         </div>
-        {/* <Filters /> */}
+        <Filters />
 
         <div className="w-[100%] custom-grid z-50 rounded-3xl py-6">
-          {data.map((job) => {
+          {jobs.map((job) => {
             return <Card key={job.id} job={job} />;
           })}
         </div>

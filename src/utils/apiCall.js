@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const getJobs = async () => {
   try {
-    const response = await axios("http://localhost:3000/jobs");
+    const response = await axios("http://localhost:3001/jobs");
     const data = await response.data;
     return data;
   } catch (error) {

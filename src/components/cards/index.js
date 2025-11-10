@@ -5,6 +5,7 @@ import { FaBookmark, FaDashcube, FaHeart } from "react-icons/fa";
 // import { saveJobs } from "@/app/helperFunctions/saveJobs";
 import { useContext, useState } from "react";
 import { StateContext } from "@/app/stateManager/context";
+import { saveJobs } from "@/app/_helperFunctions/saveJobs";
 // import { cacheJobs } from "@/app/helperFunctions/saveJobs";
 // import { removeJob } from "@/app/helperFunctions/removeJob";
 
@@ -24,7 +25,7 @@ const Card = ({ job }) => {
         dispatch({ type: "SAVE_JOB", payload: false });
       }, 2000);
 
-    //   saveJobs(job);
+      saveJobs(job);
     } else {
       dispatch({ type: "REMOVE_JOB", payload: id });
       console.log(exists);
